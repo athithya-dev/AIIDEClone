@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Coding Sensei</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.0/min/vs/loader.min.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1>AI Coding Sensei</h1>
+      </div>
+      <nav class="sidebar-nav">
+        <button id="aiHelp" class="sidebar-btn">AI Help</button>
+        <button id="come-and-code" class="sidebar-btn">Come and Code</button>
+      </nav>
+      <div class="panel chat-panel">
+        <h2>Chat</h2>
+        <textarea id="chat-input" placeholder="Ask me anything..."></textarea>
+        <button id="chat-submit" class="action-btn">Send</button>
+        <div id="chat-output" class="output-scroll"></div>
+      </div>
+      <div class="panel snippets-panel">
+        <h2>Smart Snippets</h2>
+        <button id="fetch-snippet" class="action-btn">Get Snippet</button>
+        <ul id="snippet-list" class="list-scroll"></ul>
+      </div>
+      <div class="panel timeline-panel">
+        <h2>Code Timeline</h2>
+        <ul id="timeline-list" class="list-scroll"></ul>
+      </div>
+    </aside>
+    <main class="main-content">
+      <div class="prompt-section">
+        <textarea id="prompt" placeholder="e.g., Create a React website"></textarea>
+        <button id="submitPrompt" class="action-btn">Submit</button>
+      </div>
+      <div class="editors-section">
+        <div id="user-editor" class="editor"></div>
+        <div id="ai-editor" class="editor"></div>
+      </div>
+      <div class="controls-section">
+        <select id="language-select" onchange="changeLanguage()">
+          <option value="">Change Language</option>
+        </select>
+        <button id="apply-correction" class="action-btn">Apply Auto-Correction</button>
+        <button id="toggle-mood" class="action-btn">Toggle Mood Enhancer</button>
+        <button id="time-machine" class="action-btn">Code Time Machine</button>
+        <select id="duet-style" onchange="startDuet()">
+          <option value="">AI Duet Style</option>
+          <option value="verbose">Verbose</option>
+          <option value="minimalist">Minimalist</option>
+        </select>
+      </div>
+      <div class="preview-section">
+        <iframe id="preview-frame"></iframe>
+      </div>
+      <div id="error-display" class="error-message"></div>
+      <div id="sensei" class="sensei-bubble">👩‍💻 Sensei says: Start coding!</div>
+      <audio id="mood-audio" loop></audio>
+    </main>
+  </div>
+  <div id="collab-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-modal" class="modal-close">&times;</span>
+      <h2>Come and Code</h2>
+      <button id="start-collab" class="action-btn">Start Session</button>
+      <input id="session-id" placeholder="Enter Session ID" class="modal-input" />
+      <button id="join-collab" class="action-btn">Join Session</button>
+      <div id="session-info" class="session-info"></div>
+    </div>
+  </div>
+  <script src="client.js"></script>
+</body>
+</html>
